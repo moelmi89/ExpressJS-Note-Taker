@@ -18,3 +18,15 @@ const PORT = process.env.PORT || 3001;
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(mainPath, "notes.html"));
 });
+
+
+
+app.get("*", function(req, res) {
+    res.sendFile(path.join(mainPath, "index.html"));
+});
+
+
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT: ${PORT}`);
+  });
