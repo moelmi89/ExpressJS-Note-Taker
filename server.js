@@ -41,6 +41,29 @@ app.post("/api/notes", function(req, res) {
 
 })
 
+//API DELETE Requests: 
+app.delete("/api/notes/:id", function(req, res) {
+
+    //read data
+    var savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    var noteID = req.params.id;
+    var newID = 0;
+
+    savedNotes = savedNotes.filter(currentNote => {
+
+        return currentNote.id != noteID;
+
+    })
+
+    for (currentNote of savedNotes) {
+        currentNote.id = newID.toString();
+        newID++;
+    }
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
+    return res.json(savedNotes);
+});
+
 
 
 app.listen(PORT, () => {
