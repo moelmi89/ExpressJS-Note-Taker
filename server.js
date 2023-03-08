@@ -16,13 +16,13 @@ const PORT = process.env.PORT || 3001;
 
 //routes
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(mainPath, "notes.html"));
+    res.sendFile(path.join(__dirname, "/notes.html"));
 });
 
 
 
 app.get("*", function(req, res) {
-    res.sendFile(path.join(mainPath, "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.post("/api/notes", function(req, res) {
