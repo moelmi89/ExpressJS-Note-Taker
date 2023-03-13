@@ -33,4 +33,3 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Link to Deployed Site
 
-https://moelmi89.github.io/Week-5-Third-Party-API-Calender/
